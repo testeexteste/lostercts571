@@ -1,0 +1,90 @@
+{
+  "auth": {
+    "customId": "auth",
+    "queryName": "Autenticar",
+    "sourceType": "entityFullName",
+    "entitySimpleName": "User",
+    "entityFullName": "app.entity.User",
+    "query": "select o from User o where o.login \u003d :login",
+    "queryParamsValues": [
+      {
+        "fieldName": "login",
+        "fieldValue": ""
+      }
+    ],
+    "verbs": {
+      "GET": false,
+      "POST": false,
+      "PUT": false,
+      "DELETE": false,
+      "FILTER": true
+    },
+    "events": {
+      "beforeInsert": {
+        "blocklyClass": "blockly.Loester",
+        "blocklyMethod": "Executar",
+        "blocklyLanguage": "java",
+        "blocklyJson": {
+          "namespace": "blockly.Loester",
+          "sourcePath": "src/main/java/blockly/loester.blockly",
+          "language": "java",
+          "class": "blockly.Loester",
+          "methods": [
+            {
+              "name": "Executar",
+              "hasReturn": "true",
+              "params": [
+                "Entidade\u003capp.entity.User\u003e"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "defaultValues": {
+      "id": "null",
+      "email": "null",
+      "name": "null",
+      "login": "null",
+      "picture": "null",
+      "password": "null",
+      "theme": "null"
+    },
+    "defaultValuesProperties": {},
+    "security": {},
+    "calcFields": {},
+    "calcFieldsSecurity": {},
+    "calcFieldsProperties": {},
+    "errorHandles": {},
+    "serviceUrl": "api/cronapi/odata/v2/auth/"
+  },
+  "roles": {
+    "customId": "roles",
+    "queryName": "Obter Autorização",
+    "screen": "",
+    "sourceType": "entityFullName",
+    "entitySimpleName": "Role",
+    "entityFullName": "app.entity.Role",
+    "query": "select o.id from Role o where o.user.login \u003d :login",
+    "queryParamsValues": [
+      {
+        "fieldName": "login",
+        "fieldValue": ""
+      }
+    ],
+    "verbs": {
+      "GET": false,
+      "POST": false,
+      "PUT": false,
+      "DELETE": false,
+      "FILTER": true
+    },
+    "events": {},
+    "defaultValues": {},
+    "security": {},
+    "calcFields": {},
+    "calcFieldsSecurity": {},
+    "errorHandles": {},
+    "serviceUrl": "api/cronapi/query/roles/"
+  }
+}
